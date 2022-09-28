@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit convertor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_container">
+        <h1>Please enter the unit you want to convert</h1>
+
+          <div class="inner_container">
+
+              <form  id="form" onsubmit="calculate(); return false">
+                       <input type="number" id="input">
+
+                    <select name="" id="select">
+                                  <option value="meter">meter</option>
+                                  <option value="centimeter">centimeter</option>
+                    </select>
+           </div>
+                    <input type="submit" id="submit">
+              </form>
+       
+
+     <div id="result"></div>
+
+    </div>
+
+
+
+
+    <script>
+        const calculate=()=>{
+            const number =document.querySelector("#input").value;
+
+            const selectedunit=document.querySelector("#select");
+            const chooseunit=select.options[selectedunit.selectedIndex].value;
+
+            const MtoCM =(meter)=>{
+                let centimeter=(meter*100);
+                return centimeter;
+            }
+
+            const CMtoM =(centimeter)=>{
+                let meter=(centimeter*(0.01));
+
+                return meter;
+            }
+
+
+            let result;
+
+            if(chooseunit=="meter"){
+                result = MtoCM(number);
+                document.querySelector("#result").innerHTML=`${result} Centi Meter`;
+            }else{
+                result = CMtoM(number);
+                document.querySelector("#result").innerHTML=`${result} Meter`;
+            }
+        }
+        calculate();
+    </script>
+    
+</body>
+</html>
